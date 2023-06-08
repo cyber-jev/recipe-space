@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Recipe from "./recipe.component";
+import RecipeSearch from "./search.component";
+import Hero from "./hero.component";
+import notfound from "../assets/recepe_not_found.gif";
 
 export interface IRecipe {
   idMeal: string;
@@ -14,15 +18,14 @@ export interface IRecipe {
 }
 
 export const RecipeFinder: React.FC = () => {
-  const [query, setQuery] = useState("");
-  const [recipes, setRecipes] = useState<IRecipe[]>([]);
+  const [recipes, setRecipes] = useState<IRecipe[] | null>([]);
 
-  const handleSearch = async () => {
+  const handleSearch = async (query: string) => {
     try {
       const response = await axios.get<{ meals: IRecipe[] }>(
         `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`
       );
-      console.log(response.data.meals);
+
       setRecipes(response.data.meals);
     } catch (error) {
       console.error(error);
@@ -34,33 +37,41 @@ export const RecipeFinder: React.FC = () => {
       const response = await axios.get<{ meals: IRecipe[] }>(
         `https://www.themealdb.com/api/json/v1/1/random.php`
       );
+
       setRecipes(response.data.meals);
     } catch (error) {
       console.error(error);
     }
   };
+  console.log(recipes);
 
   return (
-    <div className="p-4">
-      <input
-        type="text"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
-      <button onClick={handleSearch}>Search</button>
-      <button onClick={handleSurpriseMe}>Surprise Me</button>
-      {recipes.map((recipe) => (
-        <div key={recipe.idMeal}>
-          <h3>
-            <span className="text-xl">TITLE: </span> {recipe.strMeal}
-          </h3>
-          <img src={recipe.strMealThumb} alt={recipe.strMeal} />
-          <p>
-            <span className="text-xl">INSTRUCTIONS: </span>{" "}
-            {recipe.strInstructions}
-          </p>
-        </div>
-      ))}
+    <div>
+      <div>
+        <Hero />
+        <RecipeSearch onSearch={handleSearch} onSurpriseMe={handleSurpriseMe} />
+      </div>
+
+      {recipes !== null ? (
+        recipes.map((recipe) => (
+          <div key={recipe.idMeal} className="p-4">
+            <Recipe
+              id={recipe.idMeal}
+              key={recipe.idMeal}
+              title={recipe.strMeal}
+              image={recipe.strMealThumb}
+              instructions={recipe.strInstructions}
+              area={recipe.strArea}
+              category={recipe.strCategory}
+              youtube={recipe.strYoutube}
+              ingredient={recipe.strIngredient}
+              measure={recipe.strMeasure}
+            />
+          </div>
+        ))
+      ) : (
+        <img src={notfound} alt="not found" />
+      )}
     </div>
   );
 };
