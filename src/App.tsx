@@ -4,7 +4,7 @@ import "./App.css";
 
 const App: React.FC = () => {
   return (
-    <div className="App p-4">
+    <div className="App">
       <h1>Food Recipe Finder</h1>
       <RecipeFinder />
     </div>
