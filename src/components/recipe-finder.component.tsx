@@ -15,19 +15,15 @@ const RecipeFinder: React.FC = () => {
   const handleSearch = async () => {
     const options = {
       method: "GET",
-      url: "https://recipe-by-api-ninjas.p.rapidapi.com/v1/recipe",
+      url: "http://localhost:8230/api/recipe",
       params: {
         query: query,
-      },
-      headers: {
-        "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
-        "X-RapidAPI-Host": "recipe-by-api-ninjas.p.rapidapi.com",
       },
     };
 
     try {
       const response = await axios.request(options);
-      console.log(response);
+      // console.log(response);
       const updatedRecipes: Recipe[] = await Promise.all(
         response.data.map(async (recipe: any) => {
           const imageUrl = await fetchGoogleImage(recipe.title);
@@ -48,8 +44,11 @@ const RecipeFinder: React.FC = () => {
       title
     )}&searchType=image&num=1`;
 
+    // const url = "http://localhost:8230/api/google-image";
+
     try {
       const response = await axios.get(url);
+      // console.log(response);
       if (response.data.items && response.data.items.length > 0) {
         return response.data.items[0].link;
       }
