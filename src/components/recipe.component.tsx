@@ -35,7 +35,7 @@ const Recipe: React.FC<RecipeProps> = ({
           className="mt-2 shadow-xl w-[1fr] rounded transition-transform duration-300 hover:scale-105"
         />
       </div>
-      <div className="text-center mt-5">
+      <div className="text-center mt-5 transition-transform duration-300 hover:scale-105">
         <h3 className="text-xl font-bold lg:text-2xl">INSTRUCTIONS </h3>
         <p className="mt-2 mx-auto max-w-[50ch]">{instructions}</p>
       </div>
