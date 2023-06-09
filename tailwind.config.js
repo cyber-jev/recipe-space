@@ -12,6 +12,7 @@ module.exports = {
       },
       fontFamily: {
         custom: ["Tilt Prism", "cursive"],
+        custom2: ["Droid Sans", "sans-serif"],
       },
     },
   },

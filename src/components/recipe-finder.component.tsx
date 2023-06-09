@@ -47,14 +47,14 @@ export const RecipeFinder: React.FC = () => {
 
   return (
     <div>
-      <div>
+      <div className="lg:flex shadow-sm ">
         <Hero />
         <RecipeSearch onSearch={handleSearch} onSurpriseMe={handleSurpriseMe} />
       </div>
 
       {recipes !== null ? (
         recipes.map((recipe) => (
-          <div key={recipe.idMeal} className="p-4">
+          <div key={recipe.idMeal} className="p-4 m-auto max-w-[1200px]">
             <Recipe
               id={recipe.idMeal}
               key={recipe.idMeal}

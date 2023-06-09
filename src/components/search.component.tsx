@@ -15,27 +15,43 @@ const RecipeSearch: React.FC<RecipeSearchProps> = ({
     onSearch(query);
   };
 
+  const handleScroll = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: "smooth", // Add smooth scrolling behavior
+    });
+  };
+
   return (
-    <div className="p-4">
-      <p className="max-w-[40ch] py-4 text-l">
-        Find hundreds of recipe, You can get started by searching in the box
-        below or having fun with the surprise me button
+    <div className="p-4 flex flex-col justify-around ">
+      <p className="max-w-[40ch] py-4 lg:text-xl">
+        Find hundreds of recipes, You can get started by searching in the box
+        below or try having fun with the surprise me button
       </p>
-      <input
-        type="text"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        className="border p-2"
-      />
+      <div>
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          className="border p-2 rounded"
+        />
+        <button
+          onClick={() => {
+            handleSearch();
+            handleScroll();
+          }}
+          className="p-2 ml-2 bg-black text-white font-custom2 rounded"
+        >
+          SEARCH
+        </button>
+      </div>
       <button
-        onClick={handleSearch}
-        className="p-2 ml-2 bg-black text-white font-custom"
-      >
-        SEARCH
-      </button>
-      <button
-        onClick={onSurpriseMe}
-        className="block p-2 mt-2 bg-black text-white font-custom"
+        // onClick={onSurpriseMe}
+        onClick={() => {
+          onSurpriseMe();
+          handleScroll(); // Scroll down when the button is clicked
+        }}
+        className=" p-2 mt-2 bg-black text-white font-custom2 w-max rounded"
       >
         SURPRISE ME
       </button>
