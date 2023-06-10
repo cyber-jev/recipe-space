@@ -24,7 +24,7 @@ const Recipe: React.FC<RecipeProps> = ({
   measure,
 }) => {
   return (
-    <div className="mt-7 p-8 gap-3 rounded shadow-lg  md:grid md:grid-cols-2  ">
+    <div className="mt-7 p-4 gap-3 rounded shadow-lg  md:grid md:grid-cols-2  ">
       <div>
         <h2 className="mt-2 font-bold text-xl lg:text-2xl">
           <span>TITLE: </span> {title}
@@ -37,12 +37,12 @@ const Recipe: React.FC<RecipeProps> = ({
         <img
           src={image}
           alt={title}
-          className="mt-4 shadow-xl w-[1fr] rounded transition-transform duration-300 hover:scale-105"
+          className="mt-4 shadow-xl w-[1fr] rounded transition-transform duration-300 hover:scale-110"
         />
       </div>
       <div className="text-center mt-5 p-3 transition-transform duration-300 hover:scale-105">
         <h2 className="text-xl font-bold lg:text-2xl">INSTRUCTIONS </h2>
-        <p className="mt-2  mx-auto max-w-[50ch]">{instructions}</p>
+        <p className="mt-2 p-2  mx-auto max-w-[50ch]">{instructions}</p>
       </div>
     </div>
   );

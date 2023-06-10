@@ -81,7 +81,7 @@ const BackToTopButton: React.FC = () => {
     <>
       {showBackToTop && (
         <button
-          className="fixed bottom-14 right-4 bg-gray-800 text-white rounded-full p-2 shadow-md   hover:bg-accent animate-bounce"
+          className="fixed bottom-14 right-4 bg-accent text-white rounded-full p-2 shadow-md   hover:bg-body2 animate-bounce"
           onClick={handleBackToTop}
         >
           <svg
