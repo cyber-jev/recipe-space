@@ -6,7 +6,7 @@ import "./App.css";
 
 const App: React.FC = () => {
   return (
-    <div className="App bg-body">
+    <div className="App bg-body m-auto max-w-[1920px]">
       <RecipeFinder />
       <BackToTopButton />
     </div>

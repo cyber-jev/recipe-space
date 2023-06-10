@@ -47,7 +47,7 @@ export const RecipeFinder: React.FC = () => {
 
   return (
     <div>
-      <div className="lg:flex shadow-sm ">
+      <div className="lg:flex lg:justify-between h-[100dvh] shadow-sm ">
         <Hero />
         <RecipeSearch onSearch={handleSearch} onSurpriseMe={handleSurpriseMe} />
       </div>
@@ -70,7 +70,11 @@ export const RecipeFinder: React.FC = () => {
           </div>
         ))
       ) : (
-        <img src={notfound} alt="not found" />
+        <img
+          src={notfound}
+          alt="not found"
+          className="mx-auto my-8 shadow rounded-2xl"
+        />
       )}
     </div>
   );

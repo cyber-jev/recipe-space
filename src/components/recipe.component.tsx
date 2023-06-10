@@ -24,20 +24,25 @@ const Recipe: React.FC<RecipeProps> = ({
   measure,
 }) => {
   return (
-    <div className="mt-7 p-4 gap-3 rounded shadow-lg  md:grid md:grid-cols-2  ">
+    <div className="mt-7 p-8 gap-3 rounded shadow-lg  md:grid md:grid-cols-2  ">
       <div>
-        <h3 className="mt-2 font-bold text-xl lg:text-2xl">
+        <h2 className="mt-2 font-bold text-xl lg:text-2xl">
           <span>TITLE: </span> {title}
+        </h2>
+        <h3 className="font-semibold">
+          <span>Region: {area}</span>{" "}
+          <span className="text-accent font-extrabold">|</span>{" "}
+          <span>Category: {category}</span>
         </h3>
         <img
           src={image}
           alt={title}
-          className="mt-2 shadow-xl w-[1fr] rounded transition-transform duration-300 hover:scale-105"
+          className="mt-4 shadow-xl w-[1fr] rounded transition-transform duration-300 hover:scale-105"
         />
       </div>
-      <div className="text-center mt-5 transition-transform duration-300 hover:scale-105">
-        <h3 className="text-xl font-bold lg:text-2xl">INSTRUCTIONS </h3>
-        <p className="mt-2 mx-auto max-w-[50ch]">{instructions}</p>
+      <div className="text-center mt-5 p-3 transition-transform duration-300 hover:scale-105">
+        <h2 className="text-xl font-bold lg:text-2xl">INSTRUCTIONS </h2>
+        <p className="mt-2  mx-auto max-w-[50ch]">{instructions}</p>
       </div>
     </div>
   );
