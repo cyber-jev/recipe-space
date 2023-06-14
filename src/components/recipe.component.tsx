@@ -34,11 +34,13 @@ const Recipe: React.FC<RecipeProps> = ({
           <span className="text-accent font-extrabold">|</span>{" "}
           <span>Category: {category}</span>
         </h3>
-        <img
-          src={image}
-          alt={title}
-          className="mt-2 shadow-xl w-[1fr] rounded transition-transform duration-300 hover:scale-110 lg:mt-4"
-        />
+        <div className="overflow-hidden ">
+          <img
+            src={image}
+            alt={title}
+            className="mt-2 shadow-xl w-[1fr] rounded transition-transform duration-300 hover:scale-110 lg:mt-4"
+          />
+        </div>
       </div>
       <div className="text-center mt-5 p-3 transition-transform duration-300 hover:scale-105 lg:hover:scale-110">
         <h2 className="text-xl font-bold lg:text-2xl">INSTRUCTIONS </h2>
