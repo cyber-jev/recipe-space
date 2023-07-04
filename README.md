@@ -4,6 +4,8 @@
 
 Recipe Space is a web application that allows you to search for particular recipes and also discover random recipes with just a click of a button. The application is built using React, TypeScript, Tailwind CSS, and integrates with an external recipe API.
 
+Check out the live preview of Recipe Space [here](https://recipespace.vercel.app/).
+
 ## Table of Contents
 
 - [Introduction](#introduction)
@@ -15,7 +17,6 @@ Recipe Space is a web application that allows you to search for particular recip
 - [API Integration](#api-integration)
 - [Contributing](#contributing)
 - [License](#license)
-- [Live Preview](#live-preview)
 
 ## Introduction
 
@@ -71,7 +72,3 @@ We welcome contributions to improve Recipe Space and make it better. If you find
 ## License
 
 Recipe Space is open-source software licensed under the [MIT License](LICENSE). Feel free to use, modify, and distribute the code as per the terms of the license.
-
-## Live Preview
-
-Check out the live preview of Recipe Space [here](https://recipespace.vercel.app/).
